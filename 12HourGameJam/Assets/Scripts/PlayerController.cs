@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed;
+
+    [SerializeField] private Collider2D playerCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,4 +58,14 @@ public class PlayerController : MonoBehaviour
         // move left
         transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
     }
+
+    void OnTriggerStay2D (Collider2D collision) {
+
+        if (Input.GetKeyDown("q")) {
+            if (collision.tag == "item") {
+                Debug.Log ("picked up seashell!");
+            }
+        }
+    }
+
 }
