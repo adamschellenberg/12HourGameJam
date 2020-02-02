@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\SeashellController.cs" />
      <Compile Include="Assets\Scripts\TitleScreenController.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
+     <Compile Include="Assets\Scripts\VillagerController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/adams/Documents/GitHub/12HourGameJam/12HourGameJam/12HourGameJam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeedBase;
+    private float moveSpeed;
+    public bool playerCanMove;
 
     [SerializeField] private Collider2D playerCollider;
 
     // Start is called before the first frame update
     void Start()
     {
+        moveSpeed = moveSpeedBase;
+        playerCanMove = true;
         
     }
 
@@ -36,6 +40,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("a")) {
             // left
             MoveLeft();
+        }
+
+        if (playerCanMove) {
+            moveSpeed = moveSpeedBase;
+        } else {
+            moveSpeed = 0;
         }
     }
 
@@ -63,7 +73,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("q")) {
             if (collision.tag == "item") {
-                Debug.Log ("picked up seashell!");
+                Destroy(collision.gameObject);
+            }
+        }
+
+        if (Input.GetKeyDown("e")) {
+            if (collision.tag == "villager") {
+                playerCanMove = false;
             }
         }
     }
